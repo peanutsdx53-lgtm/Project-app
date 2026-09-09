@@ -1,0 +1,8 @@
+/* D18 temporary replaceable art layer. Runtime/navigation remain D17-derived. */
+.title{background:linear-gradient(180deg,#02050b22,#02050b74),url("assets/art/title.webp") center/cover no-repeat!important}
+.title:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 0 24%,#0103075e 68%,#010307a8 100%);z-index:1}.tc,.tp,.rip,.ts{z-index:2}
+.world[data-w="neutral"]{background:linear-gradient(180deg,#01040a18,#01040a52),url("assets/art/home.webp") center/cover no-repeat!important}
+.world[data-w="kanto"]{background:linear-gradient(180deg,#01040a16,#01040a58),url("assets/art/mode-kanto.webp") center/cover no-repeat!important}
+.world[data-w="eastwest"]{background:linear-gradient(180deg,#01040a16,#01040a58),url("assets/art/mode-eastwest.webp") center/cover no-repeat!important}
+.world[data-w="western"]{background:linear-gradient(180deg,#01040a12,#01040a5e),url("assets/art/mode-western.webp") center/cover no-repeat!important}
+.world:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#02050ab8 0%,#02050a48 31%,transparent 63%,#02050a24 100%),linear-gradient(180deg,#0000,#0005)}

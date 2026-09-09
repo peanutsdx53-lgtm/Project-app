@@ -1,0 +1,12 @@
+{
+  "status": "D18_USER_VERIFY_CANDIDATE",
+  "art_status": "TEMPORARY_ART / REPLACEABLE",
+  "assets": {
+    "title": {"path":"assets/art/title.webp","size":[900,506],"bytes":9250,"sha256":"0532ccd5c4df3d899ccb27e44e90430f254723cc1b48ab16869c605ef6e9bb20","git_blob":"e15a1684888201f1874c0672081048eb4568ee16"},
+    "home": {"path":"assets/art/home.webp","size":[1280,720],"bytes":10326,"sha256":"557f38017a8a8eeacae0ec66ac83eec20eea07a8eebce8c545c3654b0c25b442","git_blob":"718f48a36c3bfad7f0ee348fbf396bbdd99d6673"},
+    "mode-kanto": {"path":"assets/art/mode-kanto.webp","size":[1280,720],"bytes":13294,"sha256":"e1dba6356f79371c4fca7ddb6752e1ffa3adea38902bc74c1ca80d359cc26c1e","git_blob":"11521862400f5cdedde7b99d31b473454a23a546"},
+    "mode-eastwest": {"path":"assets/art/mode-eastwest.webp","size":[1280,720],"bytes":12266,"sha256":"9e24d88169431994da24a93880e9ca7fe717b2b1fe68f67980c971ffbb23a2c3","git_blob":"2dad02acb854275cc2b4db0c9f9d8476b003e790"},
+    "mode-western": {"path":"assets/art/mode-western.webp","size":[960,540],"bytes":7232,"sha256":"653fc6c505951fe6272d123c0560884a92cfe48eeaf6d7c2ca98d62a85cb0eb5","git_blob":"dc04e4e830198df6fde6a2f3a3ebee7efb7a1a1f"}
+  },
+  "replacement_rule": "UI/state/navigation are independent from art bytes; later art may replace these paths without redesigning the screen flow."
+}
