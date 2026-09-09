@@ -1,10 +1,10 @@
 {
-  "version": "D8",
-  "released_at": "2026-09-09T12:58:00+09:00",
+  "version": "D9",
+  "released_at": "2026-09-09T13:42:00+09:00",
   "channel": "github-safari-test",
-  "update_policy": "check-on-start-resume-focus-and-60s",
-  "feature": "title screen -> HOME",
-  "title_art": "temporary embedded concept art; final art replacement planned",
-  "transition": "tap ripple + 340ms crossfade; HOME becomes interactive immediately",
+  "feature": "title UI separated from background art",
+  "title_layout": "HTML/CSS logo + tagline + tap prompt",
+  "art_policy": "background art can be replaced independently later",
+  "transition": "tap-position ripple + 330ms title-to-HOME crossfade",
   "audio": "temporary timing-validation SE"
 }
