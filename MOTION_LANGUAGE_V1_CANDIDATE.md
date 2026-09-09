@@ -50,14 +50,24 @@ These rules were added after D13–D15 iOS PWA regressions.
 - Restored screens must appear in their stable state first; resume must not replay full entry animation.
 
 ## Cold Start / Resume Rules
-D16 candidate lifecycle contract:
+D16 candidate lifecycle contract, retained by D17:
 - Cold Start: show the title screen.
 - Normal background resume: preserve the current screen without routing through title.
 - Same-session WebKit reload/discard: restore HOME, selected battle mode, mode detail, encyclopedia, records, or settings from sessionStorage.
 - Screen-state persistence is session-only. Do not store current screen in long-term localStorage.
 - Missing or corrupt resume state fails closed to the title screen.
 - Restoring a screen must not replay UI SE or haptics.
-- Web-only limitation: a browser/PWA cannot perfectly distinguish every user force-quit from every OS/WebKit process discard if the platform preserves session data. D16 uses sessionStorage as the safest practical approximation and must be verified on iPhone PWA.
+- Web-only limitation: a browser/PWA cannot perfectly distinguish every user force-quit from every OS/WebKit process discard if the platform preserves session data. sessionStorage is the safest practical approximation and must be verified on iPhone PWA.
+
+## Viewport Stability Rules
+Added after the intermittent D16 landscape-bottom corruption observed on iPhone PWA.
+- Do not derive stage width and stage height from independent CSS `vw` / `vh` expressions during launch or resume.
+- Read one viewport snapshot, preferably from `visualViewport`, and calculate both stage dimensions atomically from that same snapshot.
+- Preserve a strict 16:9 stage ratio at every intermediate viewport size.
+- Re-measure on launch, pageshow/resume, resize, orientationchange, and visualViewport resize/offset changes.
+- When viewport dimensions materially change, temporarily conceal the game stage until consecutive measurements are stable; do not expose a partially updated stage.
+- If viewport dimensions did not materially change, normal resume should not intentionally blank the screen or route through title.
+- Viewport stabilization is infrastructure, not a decorative motion layer, and must take precedence over animation.
 
 ## Performance Rules
 - Prefer transform and opacity.
@@ -68,11 +78,12 @@ D16 candidate lifecycle contract:
 - Reduced-motion and in-game Motion OFF must disable nonessential animation.
 - Final layered illustration motion must be designed for mobile GPU budgets and tested on iPhone Safari/PWA.
 
-## Current D16 Timing Tokens
+## Current D17 Timing Tokens
 - Press: 110 ms
 - Feedback: 190 ms
 - Panel entry: 280 ms
 - World crossfade: 700 ms
+- Viewport stabilization: frame-driven; no fixed user-facing delay
 
 ## Art Direction
 Movement should feel like modern Japan overlapped by the supernatural: quiet fog, night air, restrained gold reflection, distant yokai presence. Avoid futuristic HUD motion, excessive gacha-style sparkle, constant full-screen flashing, and movement that competes with command readability.
