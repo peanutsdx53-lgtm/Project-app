@@ -1,0 +1,15 @@
+{
+  "status": "CANDIDATE",
+  "scope": "parallel UI/UX only",
+  "slots": {
+    "title": "assets/art/title.webp",
+    "home": "assets/art/home.webp",
+    "kanto": "assets/art/mode-kanto.webp",
+    "eastwest": "assets/art/mode-eastwest.webp",
+    "western": "assets/art/mode-western.webp"
+  },
+  "fallback_required": true,
+  "text_baked_into_art": false,
+  "replace_without_ui_logic_change": true,
+  "temporary_art": true
+}
