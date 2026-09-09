@@ -1,16 +1,9 @@
 {
-  "version": "D11",
+  "version": "D12",
   "released_at": "2026-09-09T14:52:00+09:00",
   "channel": "github-safari-test",
-  "feature": "dynamic HOME motion study",
-  "home_motion": [
-    "subtle illustration drift",
-    "ambient mist",
-    "ambient light breath",
-    "selected-mode sigil pulse",
-    "mode background crossfade"
-  ],
-  "performance_policy": "CSS transform/opacity only; no JS animation loop; no particle DOM; ambient motion pauses under title/overlay",
-  "art_policy": "temporary shared HOME art with per-mode framing/tint; final unique mode illustrations remain separate art gate",
-  "audio": "temporary timing-validation SE"
+  "fix": "remove low-resolution stretched HOME raster",
+  "motion": "CSS-only fog, ambient drift, glow, button sheen, and mode crossfade retained",
+  "art_status": "temporary abstract HOME background until final high-resolution art pass",
+  "performance": "no dynamic particle DOM; transform/opacity based motion"
 }
