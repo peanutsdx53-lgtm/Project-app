@@ -24,8 +24,9 @@ Purpose: confirm a direct player action immediately.
 ### L2 Transition
 Purpose: preserve spatial/context continuity between UI states.
 - Typical duration: 220–360 ms.
-- Examples: title to HOME fade, HOME to detail panel, encyclopedia/records/settings panel entrance.
-- Different screens may vary direction subtly, but all use the same timing family.
+- Examples: title to HOME fade and content-only entrance for mode detail / encyclopedia / records / settings.
+- Overlay roots are not animated on iOS PWA; only visible child content may animate.
+- Closed screens must be removed from rendering with hidden/display:none rather than being left transparent.
 
 ### L3 World Change
 Purpose: communicate a change in selected battle/world context.
@@ -39,6 +40,25 @@ Purpose: high-importance game events only.
 - Must not be used for normal menu navigation.
 - Audio/haptic synchronization will be specified with the combat event contract later.
 
+## State-Isolation Rules
+These rules were added after D13–D15 iOS PWA regressions.
+- A closed screen must not remain interactive or renderable behind another screen.
+- Child elements may never override the hidden state of a closed parent screen.
+- Overlay close is immediate at the state level; no delayed close timer may be allowed to bleed into the next screen.
+- Entry animation is decorative only and never owns application state.
+- HOME ambient animation pauses whenever an overlay is active.
+- Restored screens must appear in their stable state first; resume must not replay full entry animation.
+
+## Cold Start / Resume Rules
+D16 candidate lifecycle contract:
+- Cold Start: show the title screen.
+- Normal background resume: preserve the current screen without routing through title.
+- Same-session WebKit reload/discard: restore HOME, selected battle mode, mode detail, encyclopedia, records, or settings from sessionStorage.
+- Screen-state persistence is session-only. Do not store current screen in long-term localStorage.
+- Missing or corrupt resume state fails closed to the title screen.
+- Restoring a screen must not replay UI SE or haptics.
+- Web-only limitation: a browser/PWA cannot perfectly distinguish every user force-quit from every OS/WebKit process discard if the platform preserves session data. D16 uses sessionStorage as the safest practical approximation and must be verified on iPhone PWA.
+
 ## Performance Rules
 - Prefer transform and opacity.
 - Do not create large continuous particle DOM systems.
@@ -48,10 +68,10 @@ Purpose: high-importance game events only.
 - Reduced-motion and in-game Motion OFF must disable nonessential animation.
 - Final layered illustration motion must be designed for mobile GPU budgets and tested on iPhone Safari/PWA.
 
-## Current D13 Timing Tokens
+## Current D16 Timing Tokens
 - Press: 110 ms
 - Feedback: 190 ms
-- Panel transition: 280 ms
+- Panel entry: 280 ms
 - World crossfade: 700 ms
 
 ## Art Direction
