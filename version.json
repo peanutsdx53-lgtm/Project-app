@@ -1,8 +1,8 @@
 {
-  "version": "D6",
-  "released_at": "2026-09-09T12:28:00+09:00",
+  "version": "D7",
+  "released_at": "2026-09-09T12:46:00+09:00",
   "channel": "github-safari-test",
   "update_policy": "check-on-start-resume-focus-and-60s",
-  "interaction_theme": "yokai-gold-line / restrained world pulse",
-  "performance_policy": "no transition wait; transform/opacity-first; no dynamic particle DOM"
+  "fix": "generic .open class collision removed; overlay uses .is-open and CTA uses .mode-open",
+  "interaction_theme": "D6 gold-line effects retained"
 }
