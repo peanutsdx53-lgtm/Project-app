@@ -1,6 +1,7 @@
 {
-  "version": "D3",
-  "released_at": "2026-09-09T11:20:00+09:00",
+  "version": "D4",
+  "released_at": "2026-09-09T11:28:00+09:00",
   "channel": "github-safari-test",
-  "update_policy": "check-on-start-resume-focus-and-60s"
+  "update_policy": "check-on-start-resume-focus-and-60s",
+  "mobile_input": "game-surface accidental zoom/gesture suppression"
 }
