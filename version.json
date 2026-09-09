@@ -1,14 +1,16 @@
 {
-  "version": "D16",
-  "released_at": "2026-09-09T16:08:00+09:00",
+  "version": "D17",
+  "released_at": "2026-09-09T16:24:00+09:00",
   "channel": "github-safari-test",
-  "feature": "Cold Start / Resume lifecycle separation",
+  "feature": "Atomic iOS PWA viewport stabilization",
+  "root_cause": "WebKit could expose transient or inconsistently-updated viewport dimensions during launch/resume, allowing width and height to resolve from different effective viewport states",
+  "viewport_policy": "measure one visualViewport snapshot; compute both stage width and height atomically; resync on launch, resume, resize, orientationchange, and visualViewport changes",
+  "guard": "conceal the stage only while a materially changed viewport is stabilizing; unchanged normal resume does not intentionally route through title",
   "cold_start": "show title screen",
   "resume": "preserve current screen; same-session reload restores HOME/mode/encyclopedia/records/settings",
   "state_storage": "sessionStorage only; no long-term screen-state persistence",
   "fail_closed": "missing/corrupt resume state returns to title",
   "motion_layers": ["L0 Ambient", "L1 Feedback", "L2 Transition entry-only", "L3 World Change", "L4 Event reserved"],
   "timing": {"press_ms": 110, "feedback_ms": 190, "panel_entry_ms": 280, "world_ms": 700},
-  "performance": "transform/opacity oriented; ambient paused behind overlays; no dynamic particle DOM",
   "audio": "temporary timing-validation SE"
 }
