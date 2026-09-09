@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="YokaiBattlefield">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>YokaiBattlefield GitHub Safari Test D2</title>
+<title>YokaiBattlefield GitHub Safari Test D3</title>
 <style>
 :root{--gold:#d6b778;--gold2:#f0dca9;--paper:#efe5d0;--muted:#aa9e88;--ink:#05070b;--line:rgba(214,183,120,.28)}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:var(--paper);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
@@ -46,7 +46,7 @@ h1{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:500;font-siz
       <button class="util" data-panel="records">戦績</button>
       <button class="util" data-panel="settings">設定</button>
     </nav>
-    <div class="build">GH TEST D2</div>
+    <div class="build" id="buildLabel">GH TEST D3</div>
   </section>
 
   <section class="overlay" id="overlay" aria-hidden="true">
@@ -57,6 +57,30 @@ h1{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:500;font-siz
   <div class="toast" id="toast"></div>
 </main></div>
 <script>
+const APP_VERSION='D3';
+let updateCheckBusy=false;
+async function checkForAppUpdate(reason='startup'){
+  if(updateCheckBusy)return;
+  updateCheckBusy=true;
+  try{
+    const u=new URL('version.json',location.href);
+    u.searchParams.set('_',Date.now().toString());
+    const res=await fetch(u.toString(),{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
+    if(!res.ok)return;
+    const remote=await res.json();
+    if(!remote?.version || remote.version===APP_VERSION)return;
+    const current=new URL(location.href);
+    current.searchParams.set('v',remote.version);
+    current.searchParams.set('_u',Date.now().toString());
+    try{if(typeof showToast==='function')showToast('最新版を反映します')}catch(e){}
+    setTimeout(()=>location.replace(current.toString()),220);
+  }catch(e){}finally{updateCheckBusy=false}
+}
+window.addEventListener('pageshow',()=>setTimeout(()=>checkForAppUpdate('pageshow'),250));
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')setTimeout(()=>checkForAppUpdate('resume'),180)});
+window.addEventListener('focus',()=>setTimeout(()=>checkForAppUpdate('focus'),220));
+setInterval(()=>{if(document.visibilityState==='visible')checkForAppUpdate('interval')},60000);
+
 const game=document.getElementById('game'),copy=document.getElementById('copy'),title=document.getElementById('title'),sub=document.getElementById('sub'),overlay=document.getElementById('overlay'),panelBody=document.getElementById('panelBody'),toast=document.getElementById('toast');
 let selected=null;
 const modeDescriptions={
