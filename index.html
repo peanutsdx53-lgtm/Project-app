@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05070b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="YokaiBattlefield">
+<title>YokaiBattlefield GitHub Viewport Test D1</title>
+<style>
+:root{--gold:#d6b778;--paper:#efe5d0;--ink:#05070b}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:var(--paper);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+.viewport{position:fixed;inset:0;display:grid;place-items:center;background:#000;overflow:hidden}
+.game{position:relative;width:min(100vw,calc(100vh * 16 / 9));height:min(100vh,calc(100vw * 9 / 16));overflow:hidden;background:radial-gradient(circle at 65% 35%,rgba(85,98,125,.32),transparent 30%),linear-gradient(160deg,#111927 0%,#07101c 45%,#020407 100%);border:1px solid rgba(214,183,120,.20)}
+.game:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.58),transparent 38%),linear-gradient(0deg,rgba(0,0,0,.72),transparent 40%)}
+.scene{position:absolute;inset:0;background:radial-gradient(ellipse at 62% 58%,rgba(255,210,120,.15),transparent 4%),radial-gradient(ellipse at 72% 46%,rgba(135,170,210,.12),transparent 12%),repeating-linear-gradient(90deg,transparent 0 5.5%,rgba(255,255,255,.025) 5.55% 5.7%,transparent 5.75% 7%);opacity:.8}
+.copy{position:absolute;left:6.5%;top:13%;width:34%;opacity:0;transform:translateY(6px);transition:.3s ease}.game.has .copy{opacity:1;transform:none}
+h1{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:500;font-size:clamp(28px,4.2vw,64px);letter-spacing:.09em;margin:0 0 12px;white-space:nowrap}.sub{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(12px,1.5vw,22px);letter-spacing:.12em;color:#d8c9ad;margin:0 0 14px}.line{width:90%;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:8px 0 12px}.open{border:0;background:transparent;color:var(--paper);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(11px,1.2vw,18px);letter-spacing:.12em;padding:9px 30px 9px 0;cursor:pointer}.open:active{background:linear-gradient(90deg,#efdcae,transparent);color:#18120a}
+.rail{position:absolute;left:24%;right:24%;bottom:6%;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.mode{height:clamp(58px,8vw,112px);border:1px solid rgba(214,183,120,.34);background:linear-gradient(180deg,rgba(30,40,55,.62),rgba(4,6,10,.9));color:var(--paper);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(12px,1.3vw,20px);letter-spacing:.07em;white-space:nowrap;cursor:pointer;transition:.12s ease}.mode:active{transform:scale(.985);background:#dfc284;color:#171109}.mode.sel{border-color:#efd89f;box-shadow:0 0 14px rgba(214,183,120,.18)}
+.utils{position:absolute;right:3.8%;bottom:5.8%;display:flex}.util{width:clamp(54px,6vw,92px);height:clamp(56px,7vw,100px);border:0;border-left:1px solid rgba(214,183,120,.25);background:rgba(3,5,9,.36);color:var(--paper);white-space:nowrap;font-size:clamp(9px,.8vw,13px)}
+.build{position:absolute;left:10px;bottom:8px;font:10px system-ui;color:rgba(255,255,255,.45);letter-spacing:.06em}
+.detail{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,4,8,.95),rgba(2,4,8,.55) 45%,rgba(2,4,8,.1));opacity:0;pointer-events:none;transition:.3s}.detail.open{opacity:1;pointer-events:auto}.detail .inner{position:absolute;left:6%;top:15%;width:38%}.back{border:1px solid rgba(214,183,120,.35);background:rgba(4,6,10,.6);color:var(--paper);padding:8px 14px}.start{margin-top:20px;border:1px solid #e5c98e;background:linear-gradient(135deg,#f0dfb7,#b18847);color:#18120a;padding:12px 28px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(14px,1.5vw,22px)}
+@media (orientation:portrait) and (max-width:900px){.viewport{display:none}body:after{content:"横向きで指揮してください";position:fixed;inset:0;display:grid;place-items:center;background:#05070b;color:var(--paper);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.12em}}
+</style>
+</head>
+<body>
+<div class="viewport"><main class="game" id="game"><div class="scene"></div><section class="copy" id="copy"><h1 id="title">関東合戦</h1><div class="line"></div><p class="sub" id="sub">首都圏に広がる異変</p><button class="open" id="open">この合戦を見る →</button></section><nav class="rail"><button class="mode" data-title="関東合戦" data-sub="首都圏に広がる異変">関東合戦</button><button class="mode" data-title="東西合戦" data-sub="列島を分ける二つの妖勢">東西合戦</button><button class="mode" data-title="西洋妖怪決戦" data-sub="境界の外から来る妖異">西洋妖怪決戦</button></nav><nav class="utils"><button class="util">妖怪図鑑</button><button class="util">戦績</button><button class="util">設定</button></nav><div class="build">GH TEST D1</div><section class="detail" id="detail"><div class="inner"><button class="back" id="back">‹ ホームへ戻る</button><h1 id="dtitle">関東合戦</h1><div class="line"></div><p class="sub" id="dsub">首都圏に広がる異変</p><p>GitHub Pages / Safari の実表示領域と更新反映を確認するための軽量診断ビルドです。</p><button class="start">この合戦を始める ›</button></div></section></main></div>
+<script>
+const game=document.getElementById('game'),copy=document.getElementById('copy'),title=document.getElementById('title'),sub=document.getElementById('sub'),detail=document.getElementById('detail');let selected=null;
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');selected=b;title.textContent=b.dataset.title;sub.textContent=b.dataset.sub;game.classList.add('has')});
+document.getElementById('open').onclick=()=>{if(!selected)return;document.getElementById('dtitle').textContent=selected.dataset.title;document.getElementById('dsub').textContent=selected.dataset.sub;detail.classList.add('open')};document.getElementById('back').onclick=()=>detail.classList.remove('open');
+</script></body></html>
