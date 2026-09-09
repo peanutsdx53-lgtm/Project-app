@@ -1,9 +1,16 @@
 {
-  "version": "D10",
-  "released_at": "2026-09-09T13:49:00+09:00",
+  "version": "D11",
+  "released_at": "2026-09-09T14:52:00+09:00",
   "channel": "github-safari-test",
-  "fix": "suppress startup title ghost until landscape viewport is stable",
-  "title_prompt": "forced single-line and raised above home indicator",
-  "transition": "same D9 330ms title-to-HOME crossfade",
+  "feature": "dynamic HOME motion study",
+  "home_motion": [
+    "subtle illustration drift",
+    "ambient mist",
+    "ambient light breath",
+    "selected-mode sigil pulse",
+    "mode background crossfade"
+  ],
+  "performance_policy": "CSS transform/opacity only; no JS animation loop; no particle DOM; ambient motion pauses under title/overlay",
+  "art_policy": "temporary shared HOME art with per-mode framing/tint; final unique mode illustrations remain separate art gate",
   "audio": "temporary timing-validation SE"
 }
