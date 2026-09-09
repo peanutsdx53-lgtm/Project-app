@@ -1,14 +1,12 @@
 {
-  "version": "D14",
-  "released_at": "2026-09-09T15:36:00+09:00",
+  "version": "D15",
+  "released_at": "2026-09-09T15:58:00+09:00",
   "channel": "github-safari-test",
-  "feature": "Motion Language V1 candidate implementation",
-  "fix": "iOS PWA overlay panel visibility regression",
-  "motion_layers": ["L0 Ambient", "L1 Feedback", "L2 Transition", "L3 World Change", "L4 Event reserved"],
-  "timing": {"press_ms":110,"feedback_ms":190,"panel_ms":280,"world_ms":700},
-  "overlay_policy": "overlay root remains non-animated; content-only entrance animation",
+  "fix": "overlay state isolation / ghost content / stale HOME overlap",
+  "root_cause": "D14 child visibility overrode hidden overlay; delayed close also allowed state bleed",
+  "overlay_policy": "closed overlays use hidden/display:none; no child may override closed-screen visibility; no delayed close timer",
+  "motion_layers": ["L0 Ambient", "L1 Feedback", "L2 Transition entry-only", "L3 World Change", "L4 Event reserved"],
+  "timing": {"press_ms": 110, "feedback_ms": 190, "panel_entry_ms": 280, "world_ms": 700},
   "performance": "transform/opacity oriented; ambient paused behind overlays; no dynamic particle DOM",
-  "accessibility": "motion setting and reduced-motion path supported",
-  "art_status": "temporary abstract HOME backgrounds; final layered art remains a later gate",
   "audio": "temporary timing-validation SE"
 }
