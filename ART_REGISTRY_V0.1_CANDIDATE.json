@@ -1,0 +1,60 @@
+{
+  "status": "CANDIDATE",
+  "scope": "parallel UI/UX only",
+  "live_runtime": "D17",
+  "next_candidate": "D18",
+  "replacement_policy": "art files are replaceable content; UI/state/navigation must remain independent",
+  "slots": {
+    "title": {
+      "path": "assets/art/title.webp",
+      "role": "whole-game entrance",
+      "temporary": true,
+      "fallback": "dark title gradient"
+    },
+    "home": {
+      "path": "assets/art/home.webp",
+      "role": "neutral commander hub",
+      "temporary": true,
+      "fallback": "neutral HOME gradient"
+    },
+    "mode-kanto": {
+      "path": "assets/art/mode-kanto.webp",
+      "role": "Kanto battle selection/detail",
+      "temporary": true,
+      "fallback": "Kanto tone gradient"
+    },
+    "mode-eastwest": {
+      "path": "assets/art/mode-eastwest.webp",
+      "role": "East-West battle selection/detail",
+      "temporary": true,
+      "fallback": "East-West tone gradient"
+    },
+    "mode-western": {
+      "path": "assets/art/mode-western.webp",
+      "role": "Western Yokai battle selection/detail",
+      "temporary": true,
+      "fallback": "Western tone gradient"
+    }
+  },
+  "layout_safe_zones": {
+    "title": "central logo field",
+    "home_copy": "upper-left / left-center",
+    "mode_controls": "bottom-center",
+    "utility_controls": "bottom-right"
+  },
+  "regional_identity_rule": "no palette-swap-only regional differentiation; terrain, settlement, climate, vegetation, architecture, lighting and relevant yokai should contribute",
+  "future_layer_contract": [
+    "far-background-sky",
+    "terrain-city",
+    "focal-yokai",
+    "mist-cloud",
+    "foreground-frame",
+    "optional-light-fx"
+  ],
+  "promotion_gate": [
+    "all five slot files exist",
+    "no low-resolution full-screen upscale",
+    "title -> HOME -> mode select -> mode detail iPhone PWA regression PASS",
+    "D17 viewport/lifecycle/state-isolation behavior preserved"
+  ]
+}
