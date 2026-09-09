@@ -1,8 +1,10 @@
 {
-  "version": "D7",
-  "released_at": "2026-09-09T12:46:00+09:00",
+  "version": "D8",
+  "released_at": "2026-09-09T12:58:00+09:00",
   "channel": "github-safari-test",
   "update_policy": "check-on-start-resume-focus-and-60s",
-  "fix": "generic .open class collision removed; overlay uses .is-open and CTA uses .mode-open",
-  "interaction_theme": "D6 gold-line effects retained"
+  "feature": "title screen -> HOME",
+  "title_art": "temporary embedded concept art; final art replacement planned",
+  "transition": "tap ripple + 340ms crossfade; HOME becomes interactive immediately",
+  "audio": "temporary timing-validation SE"
 }
