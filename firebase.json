@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "ART_ASSET_SLOTS_V0.1_CANDIDATE.json",
+      "ART_PRESENTATION_ARCHITECTURE_V0.1_CANDIDATE.md",
+      "ART_REGISTRY_V0.1_CANDIDATE.json",
+      "D18_ART_ASSET_MANIFEST_CURRENT.json",
+      "D18_SCREEN_ART_INTEGRATION_SPEC_CANDIDATE.md",
+      "MOTION_LANGUAGE_V1_CANDIDATE.md"
+    ]
+  }
+}
